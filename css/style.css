@@ -7,19 +7,32 @@ Dark green: #28b485
 
 */
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  /* box-sizing should be daclared in body */
+  box-sizing: inherit;
+}
+
+html {
+  /* 62.5% is equal to 10px from 16px.
+  using 10px for easier calculation of rem's
+  in this case 1rem = 10px, but declared in percentages
+  to allow the user agent(browser) to change the default
+  font-size(16px) */
+  font-size: 62.5%;
 }
 
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 1.7;
   color: #777;
-  padding: 30px;
+  padding: 3rem;
+  box-sizing: border-box;
 }
 
 .header {
@@ -33,25 +46,27 @@ body {
   position: relative;
 }
 
-.logo-box {
+.header__logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
-.logo {
+.header__logo {
   cursor: pointer;
-  height: 35px;
+  height: 3.5rem;
   transition: all .3s;
-  filter: drop-shadow(1px 1px 1px #333333);
+  /* use drop-shadow to create a shadow of the irregular shape
+  box-shadow is useful only for a rectangle */
+  filter: drop-shadow(.1rem .1rem .1rem #333333);
 }
 
-.logo:hover {
+.header__logo:hover {
   transform: scale(1.1);
-  filter: drop-shadow(5px 5px 3px #333333);
+  filter: drop-shadow(.5rem .5rem .3rem #333333);
 }
 
-.text-box {
+.header__text-box {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -64,35 +79,39 @@ body {
   text-transform: uppercase;
   margin: 0 auto;
   backface-visibility: hidden;
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
   animation-name: moveInLeft;
   animation-duration: 1s;
   animation-timing-function: ease-out;
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.5px;
+  letter-spacing: 1.75rem;
   animation: moveInRight 1s ease-out .2s;
+  /* The animation will apply the values defined
+  in the first relevant keyframe as soon as it is
+  applied to the target, and retain this during
+  the animation-delay period */
   animation-fill-mode: backwards;
 }
 
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
   50% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
   100% {
     opacity: 1;
@@ -103,10 +122,10 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
   50% {
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
   100% {
     opacity: 1;
@@ -117,7 +136,7 @@ body {
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(5rem);
   }
   100% {
     opacity: 1;
@@ -129,21 +148,21 @@ body {
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   display: inline-block;
-  border-radius: 100px;
+  border-radius: 10rem;
   transition: all .2s;
   position: relative;
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+  transform: translateY(-.3rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
 }
 
 .btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  transform: translateY(-.1rem);
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
 }
 
 .btn::after {
@@ -151,7 +170,7 @@ body {
   display: inline-block;
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -164,16 +183,16 @@ body {
   opacity: 0;
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
 
-.btn-white::after {
+.btn--white::after {
   background-color: #fff;
 }
 
-.btn-animated {
+.btn--animated {
   animation: moveInBottom .6s ease-out .75s;
   animation-fill-mode: backwards;
 }
