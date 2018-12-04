@@ -6,6 +6,13 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+$color-dark-grey: #777;
+$color-white: #fff;
+
 *,
 *::before,
 *::after {
@@ -25,18 +32,20 @@ html {
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.7;
-  color: #777;
+  color: $color-dark-grey;
   padding: 3rem;
   box-sizing: border-box;
 }
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-image:
+    linear-gradient(to right bottom, rgba($color-primary-light, .8), rgba($color-primary-dark, 0.8)),
+    url(../img/hero.jpg);
   background-size: cover;
   background-position: top;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
@@ -52,15 +61,15 @@ body {
 .header__logo {
   cursor: pointer;
   height: 3.5rem;
-  transition: all 0.3s;
+  transition: all .3s;
   /* use drop-shadow to create a shadow of the irregular shape
   box-shadow is useful only for a rectangle */
-  filter: drop-shadow(0.1rem 0.1rem 0.1rem #333333);
+  filter: drop-shadow(.1rem .1rem .1rem #333333);
 }
 
 .header__logo:hover {
   transform: scale(1.1);
-  filter: drop-shadow(0.5rem 0.5rem 0.3rem #333333);
+  filter: drop-shadow(.5rem .5rem .3rem #333333);
 }
 
 .header__text-box {
@@ -72,7 +81,7 @@ body {
 }
 
 .heading-primary {
-  color: #fff;
+  color: $color-white;
   text-transform: uppercase;
   margin: 0 auto;
   backface-visibility: hidden;
@@ -94,7 +103,7 @@ body {
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1.75rem;
-  animation: moveInRight 1s ease-out 0.2s;
+  animation: moveInRight 1s ease-out .2s;
   /* The animation will apply the values defined
   in the first relevant keyframe as soon as it is
   applied to the target, and retain this during
@@ -115,6 +124,7 @@ body {
     transform: translateX(0);
   }
 }
+
 @keyframes moveInRight {
   0% {
     opacity: 0;
@@ -128,6 +138,7 @@ body {
     transform: translateX(0);
   }
 }
+
 @keyframes moveInBottom {
   0% {
     opacity: 0;
@@ -138,6 +149,7 @@ body {
     transform: translateX(0);
   }
 }
+
 .btn:link,
 .btn:visited {
   text-transform: uppercase;
@@ -145,18 +157,18 @@ body {
   padding: 1.5rem 4rem;
   display: inline-block;
   border-radius: 10rem;
-  transition: all 0.2s;
+  transition: all .2s;
   position: relative;
 }
 
 .btn:hover {
-  transform: translateY(-0.3rem);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  transform: translateY(-.3rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
 }
 
 .btn:active {
-  transform: translateY(-0.1rem);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  transform: translateY(-.1rem);
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
 }
 
 .btn::after {
@@ -169,7 +181,7 @@ body {
   top: 0;
   left: 0;
   z-index: -1;
-  transition: transform 0.4s, opacity 0.4s;
+  transition: transform .4s, opacity .4s;
 }
 
 .btn:hover::after {
@@ -178,17 +190,15 @@ body {
 }
 
 .btn--white {
-  background-color: #fff;
-  color: #777;
+  background-color: $color-white;
+  color: $color-dark-grey;
 }
 
 .btn--white::after {
-  background-color: #fff;
+  background-color: $color-white;
 }
 
 .btn--animated {
-  animation: moveInBottom 0.6s ease-out 0.75s;
+  animation: moveInBottom .6s ease-out .75s;
   animation-fill-mode: backwards;
 }
-
-/*# sourceMappingURL=style.css.map */
