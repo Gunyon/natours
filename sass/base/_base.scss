@@ -1,0 +1,13 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  /* box-sizing should be daclared in body */
+  box-sizing: inherit;
+}
+
+body {
+  padding: 3rem;
+  box-sizing: border-box;
+}
