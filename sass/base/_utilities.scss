@@ -2,6 +2,8 @@
   text-align: center;
 }
 
-.u-mb-8 {
-  margin-bottom: 8rem;
+@for $i from 1 through 8 {
+  .u-mb-#{$i} {
+    margin-bottom: #{$i}rem;
+  }
 }
