@@ -49,6 +49,15 @@
     }
   }
 
+  &--green {
+    background-color: $color-primary;
+    color: $color-text-light;
+
+    &::after {
+      background-color: $color-btn-bg;
+    }
+  }
+
 
   &--animated {
     animation: moveInBottom .6s ease-out .75s;
