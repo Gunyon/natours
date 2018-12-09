@@ -21,12 +21,12 @@
     transition: all .3s;
     /* use drop-shadow to create a shadow of the irregular shape
     box-shadow is useful only for a rectangle */
-    filter: drop-shadow(.1rem .1rem .1rem $color-logo-shadow);
+    filter: drop-shadow(1px 2px 1px $color-logo-shadow);
   }
 
   &__logo:hover {
     transform: scale(1.1);
-    filter: drop-shadow(.5rem .5rem .3rem $color-logo-shadow);
+    filter: drop-shadow(3px 4px 2px $color-logo-shadow);
   }
 
   &__text-box {
