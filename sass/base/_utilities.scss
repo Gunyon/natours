@@ -1,12 +1,12 @@
 .u-center-text {
-  text-align: center;
+  text-align: center !important;
 }
 
 @for $i from 1 through 10 {
   .u-mb-#{$i} {
-    margin-bottom: #{$i}rem;
+    margin-bottom: #{$i}rem !important;
   }
   .u-mt-#{$i} {
-    margin-top: #{$i}rem;
+    margin-top: #{$i}rem !important;
   }
 }
